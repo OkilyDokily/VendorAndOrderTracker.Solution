@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace FriendLetter
+namespace VendorAndOrderTracker
 {
   public class Startup
   {

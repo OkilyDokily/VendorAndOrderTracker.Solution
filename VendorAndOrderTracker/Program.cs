@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
-namespace FriendLetter
+namespace VendorAndOrderTracker
 {
   public class Program
   {
