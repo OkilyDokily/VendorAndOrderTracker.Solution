@@ -17,8 +17,8 @@ namespace VendorAndOrderTracker.Controllers
         [HttpGet("/Vendor/{id}/Order/new")]
         public ActionResult New(int id)
         {
-            Vendor vendor = Vendor.vendors[id];
-            return View(vendor);
+            //Vendor vendor = Vendor.vendors[id];
+            return View(id);
         }
 
         [HttpPost("/Vendor/{id}/Order/new")]

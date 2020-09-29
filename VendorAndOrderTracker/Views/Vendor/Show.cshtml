@@ -1,0 +1,4 @@
+<div>@Model.Title</div>
+<div>@Model.Descreption</div>
+
+<a href=@("/Vendor/" +  @ViewContext.HttpContext.Request.Query["id"] + "/Order/new" )>Add an order to this vendor</a>

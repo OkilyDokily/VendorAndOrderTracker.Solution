@@ -10,6 +10,13 @@ namespace VendorAndOrderTracker.Controllers
             return View(Vendor.vendors);
         }
 
+        [HttpGet("/Vendor/{id}")]
+        public ActionResult Show(int id)
+        {
+            Vendor vendor = Vendor.vendors[id];
+            return View(vendor);
+        }
+
         [HttpGet("Vendor/new")]
         public ActionResult New()
         { 

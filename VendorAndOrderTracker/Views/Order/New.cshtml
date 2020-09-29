@@ -1,3 +1,11 @@
 <div>Order form for @Model.</div>
 
-<form action="/Vendor/" + id + "/Order/" + num + "/new"></form>
+<form action="/Vendor/" + @ViewContext.HttpContext.Request.Query["id"] + "/Order/new">
+  <label for="title">Title</label>
+  <input type="text" id="title" name="title">
+  <label for="description">Description</label>
+  <input type="text" name="description" id="description">
+  <label for="price">Price</label>
+  <input type="number" step="0.01" name="price" id="price">
+  <button type="submit">Go!</button>
+</form>

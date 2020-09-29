@@ -1,6 +1,9 @@
-@using VendorAndOrderTracker.Models
+@using VendorAndOrderTracker.Models;
+@using System.Web;
 
 @foreach (Order item in Model.Order)
 {
-    <div>@item.Title</div>
+    int i = 0;
+    <div><a href=@("/Vendor/" + @ViewContext.HttpContext.Request.Query["id"] + "/Order/" + i)>@item.Title</a></div>
+    i++;
 }
