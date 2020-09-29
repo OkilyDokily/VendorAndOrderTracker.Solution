@@ -1,6 +1,9 @@
 @using VendorAndOrderTracker.Models;
+<div><a href="/Vendor/new">Add a new vendor</a></div>
+
 
 @foreach(Vendor vendor in @Model)
 {
-  <div>@vendor.Name</div>
+  int i = 0;
+  <div><a href=@("/Vendor/" + i)>@vendor.Name</a></div>
 }

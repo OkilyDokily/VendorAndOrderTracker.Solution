@@ -1,6 +1,6 @@
-<div>Order form for @Model.</div>
+<div>Order form for @Model.Name</div>
 
-<form action="/Vendor/" + @ViewContext.HttpContext.Request.Query["id"] + "/Order/new">
+<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/new") method="post">
   <label for="title">Title</label>
   <input type="text" id="title" name="title">
   <label for="description">Description</label>
