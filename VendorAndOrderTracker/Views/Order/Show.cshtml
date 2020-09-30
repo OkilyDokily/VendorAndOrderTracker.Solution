@@ -3,6 +3,6 @@
 <div>@Model.Price</div>
 <div>@Model.Date</div>
 
-<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/" + ViewContext.RouteData.Values["id"]  ) >
-
+<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/" + ViewContext.RouteData.Values["num"] + "/delete" ) method="post">
+<button type="submit">Delete</button>
 </form>

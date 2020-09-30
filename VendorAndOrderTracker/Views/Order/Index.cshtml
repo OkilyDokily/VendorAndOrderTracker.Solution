@@ -1,9 +1,20 @@
 @using VendorAndOrderTracker.Models;
-@using System.Web;
 
+<h3>Vendor</h3>  
+<div>@Model.Name</div>
+<div>@Model.Description</div>
+
+@{
+    int i = 0;
+}
+<h3>Orders for this vendor</h3>
+<ul>
 @foreach (Order item in Model.Orders)
 {
-    int i = 0;
-    <div><a href=@("/Vendor/" +ViewContext.RouteData.Values["id"] + "/Order/" + i)>@item.Title</a></div>
+    <li><a href=@("/Vendor/" +ViewContext.RouteData.Values["id"] + "/Order/" + i)>@item.Title</a></li>
     i++;
 }
+</ul>
+
+
+<a href=@("/Vendor/" +  ViewContext.RouteData.Values["id"] + "/Order/new" )>Add an order to this vendor</a>

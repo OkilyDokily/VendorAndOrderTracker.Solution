@@ -6,13 +6,13 @@ namespace VendorAndOrderTracker.Controllers
 {
     public class OrderController : Controller
     {
-        [HttpGet("/Vendor/{id}/index")]
+      
+        [HttpGet("/Vendor/{id}/Order/")]
         public ActionResult Index(int id)
         {
             Vendor vendor = Vendor.vendors[id];
             return View(vendor);
         }
-
 
         [HttpGet("/Vendor/{id}/Order/new")]
         public ActionResult New(int id)
@@ -43,8 +43,6 @@ namespace VendorAndOrderTracker.Controllers
             Vendor vendor = Vendor.vendors[id];
             vendor.Orders.RemoveAt(num);
             return RedirectToAction("Index");
-        }
-
-        
+        }    
     }
 }
