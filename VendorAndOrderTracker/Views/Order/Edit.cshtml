@@ -1,3 +1,8 @@
+@{
+  Layout = "_Layout";
+}
+
+
 <h3>Edit an order</h3>
 
 <form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/" + ViewContext.RouteData.Values["num"] + "/update") method="post">

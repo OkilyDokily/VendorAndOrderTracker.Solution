@@ -20,5 +20,6 @@ namespace VendorAndOrderTracker.Models
             Price = price; 
             vendor.Orders.Add(this);
         }
+
     }
 }

@@ -18,5 +18,19 @@ namespace VendorAndOrderTracker.Models
            vendors.Add(this);
        }
 
+       public List<Order> SearchOrders(int query)
+       {
+           List<Order> orderResults = new List<Order>();
+           Orders.ForEach((order) => 
+           {
+               if(order.Description.Contains(query))
+               {
+                   
+               }
+           });
+
+           return orderResults;
+       }
+
     }
 }
