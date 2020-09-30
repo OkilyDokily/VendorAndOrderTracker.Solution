@@ -6,3 +6,7 @@
 <form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/" + ViewContext.RouteData.Values["num"] + "/delete" ) method="post">
 <button type="submit">Delete</button>
 </form>
+
+<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/" + ViewContext.RouteData.Values["num"] + "/edit" ) method="get">
+<button type="submit">Edit</button>
+</form>

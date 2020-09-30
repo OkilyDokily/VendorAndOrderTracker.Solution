@@ -1,0 +1,7 @@
+<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"]  +"/update") method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value=@Model.Name>
+    <label for="name">Description</label>
+    <input type="text" name="description" id="description" value=@Model.Description>
+    <button type="submit">Go!</button>
+</form>

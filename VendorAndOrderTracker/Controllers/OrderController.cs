@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using VendorAndOrderTracker.Models;
 
 
@@ -29,12 +30,41 @@ namespace VendorAndOrderTracker.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost("/Vendor/{id}/Order/delete")]
+        public ActionResult Delete(int id)
+        {
+            Vendor vendor = Vendor.vendors[id];
+            vendor.Orders = new List<Order>();
+            return RedirectToAction("Index");
+        }
+
+
         [HttpGet("/Vendor/{id}/Order/{num}")]
         public ActionResult Show(int id, int num)
         {
             Vendor vendor = Vendor.vendors[id];
             Order order = vendor.Orders[num];
             return View(order);
+        }
+
+        [HttpGet("/Vendor/{id}/Order/{num}/edit")]
+        public ActionResult Edit(int id, int num)
+        {
+            Vendor vendor = Vendor.vendors[id];
+            Order order = vendor.Orders[num];
+            return View(order);
+        }
+
+        [HttpPost("/Vendor/{id}/Order/{num}/update")]
+        public ActionResult Update(string title, string description, double price, int id, int num)
+        {
+            Vendor vendor = Vendor.vendors[id];
+            Order order = vendor.Orders[num];
+
+            order.Title = title;
+            order.Description = description;
+            order.Price = price;
+            return RedirectToAction("Index");
         }
 
         [HttpPost("/Vendor/{id}/Order/{num}/delete")]
