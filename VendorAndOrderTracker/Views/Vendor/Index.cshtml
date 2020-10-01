@@ -3,22 +3,19 @@
   Layout = "_Layout";
 }
 
-@{
-  int i = 0;
-}
-
 <div>List of vendors</div>
 
 <ul>
 @foreach(Vendor vendor in @Model)
 {
-  <li><a href=@("/Vendor/" + i + "/Order/")>@vendor.Name</a></li>
-  i++;
+  <li><a href=@("/Vendor/" + vendor.Id + "/Order/")>@vendor.Name</a></li>
 }
 </ul>
 
 
 <div><a href="/Vendor/new">Add a new vendor</a></div>
+<div class="buttons">
 <form action=@("/Vendor/" + "delete" ) method="post">
-<button type="submit">Delete all vendors</button>
+<button type="submit" class="btn btn-danger">Delete all vendors</button>
 </form>
+</div>

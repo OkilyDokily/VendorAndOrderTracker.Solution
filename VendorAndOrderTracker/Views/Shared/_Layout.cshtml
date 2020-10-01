@@ -6,7 +6,9 @@
   <title>Vendor and Order Tracker</title>
 </head>
 <body>
-  @Html.Partial("Header");
-  @RenderBody();
+  @Html.Partial("Search")
+  <div class="container">
+    @Html.Partial("Header")
+    @RenderBody()
+  </div>
 </body>
-</html>

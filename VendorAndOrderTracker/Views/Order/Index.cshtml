@@ -3,30 +3,26 @@
 @{
   Layout = "_Layout";
 }
+ 
+<h2>Name: @Model.Name</h2>
+<h4>Description: @Model.Description</h4>
 
-
-<h3>Vendor</h3>  
-<div>@Model.Name</div>
-<div>@Model.Description</div>
-
-@{
-    int i = 0;
-}
 <h3>Orders for this vendor</h3>
 <ul>
 @foreach (Order item in Model.Orders)
 {
-    <li><a href=@("/Vendor/" +ViewContext.RouteData.Values["id"] + "/Order/" + i)>@item.Title</a></li>
-    i++;
+    <li><a href=@("/Vendor/" +ViewContext.RouteData.Values["id"] + "/Order/" + item.Id)>@item.Title</a></li>
 }
 </ul>
 
+<div><a href=@("/Vendor/" +  ViewContext.RouteData.Values["id"] + "/Order/new" )>Add an order to this vendor</a></div>
+<div><a href=@("/Vendor/" +  ViewContext.RouteData.Values["id"] + "/edit" )>Edit this vendor</a></div>
 
-<a href=@("/Vendor/" +  ViewContext.RouteData.Values["id"] + "/Order/new" )>Add an order to this vendor</a>
-<a href=@("/Vendor/" +  ViewContext.RouteData.Values["id"] + "/edit" )>Edit this vendor</a>
-<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/delete" ) method="post">
-<button type="submit">Delete this vendor</button>
-</form>
-<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] +"/delete" ) method="post">
-<button type="submit">Delete all orders from this vendor</button>
-</form>
+<div class="buttons">
+  <form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/delete" ) method="post">
+  <button type="submit">Delete this vendor</button>
+  </form>
+  <form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] +"/delete" ) method="post">
+  <button type="submit">Delete all orders from this vendor</button>
+  </form>
+</div>

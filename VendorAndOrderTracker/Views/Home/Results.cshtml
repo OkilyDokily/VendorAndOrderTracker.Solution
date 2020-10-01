@@ -1,3 +1,21 @@
+@using VendorAndOrderTracker.Models
+
 @{
   Layout = "_Layout";
+}
+
+
+@foreach(KeyValuePair<Vendor, List<Order>> entry in @Model)
+{
+  <h2>Orders within the @entry.Key.Name vendor</h2>
+  @foreach(Order order in entry.Value)
+  {
+    <div class="result">
+      <p>Order title: @order.Title</p>
+      <a src=@("/Vendor/" + entry.Key.Id + "/Order/" + order.Id)>
+        <p>Order description: @order.Description</p>
+      </a>  
+    </div>
+  
+  }  
 }

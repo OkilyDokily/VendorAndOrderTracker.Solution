@@ -1,0 +1,22 @@
+.container{
+  width: 40%;
+}
+
+#searchform{
+  display:flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+body{
+  padding: 10px;
+}
+
+.buttons form{
+  margin-top: 50px;
+  display:inline-block;
+}
+
+.result{
+  border: solid 1px grey;
+}

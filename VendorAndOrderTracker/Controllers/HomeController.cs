@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-
+using System.Collections.Generic;
+using VendorAndOrderTracker.Models;
 namespace VendorAndOrderTracker.Controllers
 {
     public class HomeController : Controller
@@ -9,9 +10,11 @@ namespace VendorAndOrderTracker.Controllers
             return View();
         }
 
-          public ActionResult Search()
+        [HttpGet("/search")]
+        public ActionResult Results(string query)
         {
-            return View();
+            Dictionary<Vendor,List<Order>> results = Vendor.SearchOrders(query);
+            return View(results);
         }
     }
 }
