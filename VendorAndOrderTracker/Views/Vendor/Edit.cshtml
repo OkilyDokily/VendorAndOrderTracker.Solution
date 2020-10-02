@@ -3,10 +3,14 @@
 }
 
 
-<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"]  +"/update") method="post">
+<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"]) method="post">
+  <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" value=@Model.Name>
+    <input type="text" name="name" id="name" value=@Model.Name class="form-control">
+  </div>
+  <div class="form-group">
     <label for="name">Description</label>
-    <input type="text" name="description" id="description" value=@Model.Description>
-    <button type="submit">Go!</button>
+    <input type="text" name="description" id="description" value=@Model.Description class="form-control">
+  </div>
+    <button type="submit" class="btn btn-success">Go!</button>
 </form>

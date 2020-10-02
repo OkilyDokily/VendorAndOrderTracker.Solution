@@ -4,7 +4,7 @@
   Layout = "_Layout";
 }
 
-
+<p>Search results are for descriptions of orders</p>
 @foreach(KeyValuePair<Vendor, List<Order>> entry in @Model)
 {
   <h2>Orders within the @entry.Key.Name vendor</h2>
@@ -12,9 +12,7 @@
   {
     <div class="result">
       <p>Order title: @order.Title</p>
-      <a src=@("/Vendor/" + entry.Key.Id + "/Order/" + order.Id)>
-        <p>Order description: @order.Description</p>
-      </a>  
+      <a href=@("/Vendor/" + entry.Key.Id + "/Order/" + order.Id)>Order description: @order.Description</a>  
     </div>
   
   }  

@@ -23,7 +23,7 @@ namespace VendorAndOrderTracker.Controllers
             return View(vendor);
         }
 
-        [HttpPost("/Vendor/{id}/Order/new")]
+        [HttpPost("/Vendor/{id}/Order/")]
         public ActionResult Create(string title, string description, double price, int id)
         {
             Vendor vendor = Vendor.vendors.Find(x=>x.Id == id);
@@ -32,7 +32,7 @@ namespace VendorAndOrderTracker.Controllers
         }
 
         [HttpPost("/Vendor/{id}/Order/delete")]
-        public ActionResult Delete(int id)
+        public ActionResult DestroyAll(int id)
         {
             Vendor vendor = Vendor.vendors.Find(x=>x.Id == id);
             vendor.Orders = new List<Order>();
@@ -56,7 +56,7 @@ namespace VendorAndOrderTracker.Controllers
             return View(order);
         }
 
-        [HttpPost("/Vendor/{id}/Order/{num}/update")]
+        [HttpPost("/Vendor/{id}/Order/{num}/")]
         public ActionResult Update(string title, string description, double price, int id, int num)
         {
             Vendor vendor = Vendor.vendors.Find(x=>x.Id == id);
@@ -69,7 +69,7 @@ namespace VendorAndOrderTracker.Controllers
         }
 
         [HttpPost("/Vendor/{id}/Order/{num}/delete")]
-        public ActionResult Delete(int id, int num)
+        public ActionResult Destroy(int id, int num)
         {
             Vendor vendor = Vendor.vendors.Find(x=>x.Id == id);
             vendor.Orders.Remove(vendor.Orders.Single(x=>x.Id == num));

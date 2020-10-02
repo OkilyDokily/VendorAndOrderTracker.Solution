@@ -27,6 +27,9 @@ namespace VendorAndOrderTrackerTests.ModelsTests
             Assert.AreEqual(.25,order.Price);
             Assert.AreEqual(true, order.Date != null);
 
+            Assert.AreEqual(0,order.Id);
+            Assert.AreEqual(1, Order.CurrentID);
+
             Assert.AreEqual(1, vendor.Orders.Count);
         }
     }

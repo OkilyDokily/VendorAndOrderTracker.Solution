@@ -20,9 +20,9 @@
 
 <div class="buttons">
   <form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/delete" ) method="post">
-  <button type="submit">Delete this vendor</button>
+  <button type="submit" class="btn btn-danger">Delete this vendor</button>
   </form>
-  <form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] +"/delete" ) method="post">
-  <button type="submit">Delete all orders from this vendor</button>
+  <form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] +"/Order/delete" ) method="post">
+  <button type="submit" class="btn btn-danger">Delete all orders from this vendor</button>
   </form>
 </div>

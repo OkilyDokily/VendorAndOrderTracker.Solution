@@ -28,7 +28,7 @@ namespace VendorAndOrderTracker.Controllers
             return View(vendor);
         }
 
-        [HttpPost("/Vendor/{id}/update")]
+        [HttpPost("/Vendor/{id}/")]
         public ActionResult Update(string name, string description,int id)
         {
             Vendor vendor = Vendor.vendors.Find(x=>x.Id == id);
@@ -48,7 +48,7 @@ namespace VendorAndOrderTracker.Controllers
         [HttpPost("/Vendor/delete")]
         public ActionResult DeleteAll(int id)
         {
-            Vendor vendor = Vendor.vendors.Find(x=>x.Id == id);
+            Vendor.vendors = new List<Vendor>();
             return RedirectToAction("Index");
         }
 
@@ -58,7 +58,7 @@ namespace VendorAndOrderTracker.Controllers
             return View();
         }
 
-        [HttpPost("/Vendor/new")]
+        [HttpPost("/Vendor/")]
         public ActionResult Create(string name, string description)
         { 
             new Vendor(name, description);

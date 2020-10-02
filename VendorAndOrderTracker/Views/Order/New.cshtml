@@ -3,7 +3,7 @@
 }
 <div>Order form for @Model.Name</div>
 
-<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/new") method="post">
+<form action=@("/Vendor/" + ViewContext.RouteData.Values["id"] + "/Order/") method="post">
 <div class="form-group">
   <label for="title">Title</label>
   <input type="text" id="title" name="title" class="form-control">
@@ -16,5 +16,5 @@
   <label for="price">Price</label>
   <input type="number" step="0.01" name="price" id="price" class="form-control">
 </div>
-  <button type="submit">Go!</button>
+  <button type="submit" class="btn btn-success">Go!</button>
 </form>
