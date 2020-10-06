@@ -9,7 +9,7 @@
 
 <h3>Orders for this vendor</h3>
 <ul>
-@foreach (Order item in Model.Orders)
+@foreach (Order item in Model.GetOrders())
 {
     <li><a href=@("/Vendor/" +ViewContext.RouteData.Values["id"] + "/Order/" + item.Id)>@item.Title</a></li>
 }
