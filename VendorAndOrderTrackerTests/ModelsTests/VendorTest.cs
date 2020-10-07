@@ -14,6 +14,7 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       Vendor.CurrentID = 0;
       Order.CurrentID = 0;
     }
+
     [TestMethod]
     public void VendorConstructor_ConstructorCorrectlyCreatesObject_ReturnTrue()
     {
@@ -44,6 +45,7 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       Assert.AreEqual(1, result2.Count);
       Assert.AreEqual(2, result2[vendor].Count);
     }
+
     [TestMethod]
     public void GetVendors_EnsureVendorsAreFound_ReturnsTrue()
     {
@@ -55,6 +57,7 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       List<Vendor> aList = Vendor.GetVendors();
       CollectionAssert.AreEqual(eList, aList);
     }
+
     [TestMethod]
     public void ClearVendors_EnsureVendorsAreEmptied_ReturnsTrue()
     {
@@ -67,6 +70,7 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       List<Vendor> aList = Vendor.GetVendors();
       CollectionAssert.AreEqual(eList, aList);
     }
+
     [TestMethod]
     public void DeleteVendor_EnsureSingleVendorIsRemoved_ReturnsTrue()
     {
@@ -79,6 +83,7 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       List<Vendor> aList = Vendor.GetVendors();
       CollectionAssert.AreEqual(eList, aList);
     }
+
     [TestMethod]
     public void FindVendor_EnsureSingleVendorIsFound_ReturnsTrue()
     {
@@ -89,6 +94,19 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       Vendor aVendor = Vendor.FindVendor(1);
       Assert.AreEqual(eVendor, aVendor);
     }
+
+    [TestMethod]
+    public void GetOrder_EnsureAllOrdersAreFound_ReturnsTrue()
+    {
+      //Arrange
+      Vendor vendor = new Vendor("Taco Bell", "A fine taco establishment");
+      new Order("Taco", "A crunchy treat with ground beef and lettuce", 1.99, vendor);
+      Order eOrder = new Order("Burrito", "A chewy treat with ground beef and red sauce", .99, vendor);
+      //act
+      List<Order> aOrders = vendor.GetOrders();
+      Assert.AreEqual(2, aOrders.Count);
+    }
+
     [TestMethod]
     public void FindOrder_EnsureSingleOrderIsFound_ReturnsTrue()
     {
@@ -100,6 +118,7 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       Order aOrder = vendor.FindOrder(1);
       Assert.AreEqual(eOrder, aOrder);
     }
+
     [TestMethod]
     public void DeleteOrders_EnsureOrdersBecomeEmpty_ReturnsTrue()
     {
@@ -107,7 +126,7 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       Vendor vendor = new Vendor("Taco Bell", "A fine taco establishment");
       new Order("Taco", "A crunchy treat with ground beef and lettuce", 1.99, vendor);
       new Order("Burrito", "A chewy treat with ground beef and red sauce", .99, vendor);
-      List<Order> eOrders =new List<Order>(){};
+      List<Order> eOrders = new List<Order>() { };
       //act
       vendor.DeleteOrders();
       List<Order> aOrders = vendor.GetOrders();
@@ -125,6 +144,16 @@ namespace VendorAndOrderTrackerTests.ModelsTests
       vendor.DeleteAnOrder(0);
       List<Order> aOrders = vendor.GetOrders();
       Assert.AreEqual(1, aOrders[0].Id);
+    }
+
+    [TestMethod]
+    public void Equals_EnsureSingleOrderIsDeleted_ReturnsTrue()
+    {
+      //Arrange
+      Vendor vendor = new Vendor("Taco Bell", "A fine taco establishment");
+      Vendor vendor2 = new Vendor("Taco Bell", "A fine taco establishment");
+      //act
+      Assert.AreEqual(vendor, vendor2);
     }
   }
 }
